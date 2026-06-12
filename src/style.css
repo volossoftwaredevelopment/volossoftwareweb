@@ -5,12 +5,14 @@
    ========================================================================== */
 
 /* ---------- Fonts (self-hosted variable woff2, OFL) ---------------------- */
+/* Cinzel — Roman inscriptional capitals (Trajan lineage). Carries every
+   capital on the site: wordmark, headlines, eyebrows, the CTA, numbers. */
 @font-face {
-  font-family: 'Bodoni Moda';
+  font-family: 'Cinzel';
   font-style: normal;
-  font-weight: 400 700;
+  font-weight: 400 600;
   font-display: swap;
-  src: url('./fonts/bodoni-moda-latin.woff2') format('woff2');
+  src: url('./fonts/cinzel-latin.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Space Grotesk';
@@ -46,7 +48,7 @@
   --gold-gradient: linear-gradient(135deg, #e2c988 0%, #c9a86a 45%, #a07e42 100%);
 
   /* type */
-  --font-display: 'Bodoni Moda', 'Didot', 'Times New Roman', serif;
+  --font-display: 'Cinzel', 'Trajan Pro', 'Times New Roman', Georgia, serif;
   --font-sans: 'Space Grotesk', 'Inter', system-ui, sans-serif;
 
   --fs-hero: clamp(3.25rem, 8vw, 8rem);
@@ -228,9 +230,10 @@ main,
 .eyebrow {
   display: inline-flex;
   align-items: center;
+  font-family: var(--font-display); /* Cinzel — Roman caps */
   font-size: var(--fs-eyebrow);
-  font-weight: 500;
-  letter-spacing: 0.18em;
+  font-weight: 400;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--text-low);
   line-height: 1;
@@ -245,7 +248,7 @@ main,
 
 .lede {
   font-size: var(--fs-lede);
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.5;
   color: var(--text);
   max-width: 46ch;
@@ -264,10 +267,11 @@ main,
 .section-title {
   margin-top: var(--space-4);
   font-size: var(--fs-h2);
-  font-weight: 600;
-  line-height: 1.08;
-  letter-spacing: -0.01em;
-  max-width: 20ch;
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  max-width: 22ch;
 }
 
 /* ---------- Header / Nav ------------------------------------------------- */
@@ -305,10 +309,11 @@ main,
   display: block;
 }
 .brand-word {
-  font-family: var(--font-display);
+  font-family: var(--font-display); /* Cinzel */
   font-weight: 500;
-  font-size: 1.25rem;
-  letter-spacing: 0.02em;
+  font-size: 1.2rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   color: var(--text-hi);
 }
 
@@ -358,6 +363,7 @@ main,
   width: 100%;
   max-width: var(--maxw);
   margin-inline: auto;
+  text-align: center;
   transform-style: preserve-3d;
   will-change: transform;
 }
@@ -365,17 +371,33 @@ main,
   color: var(--text-mid);
   margin-bottom: var(--space-5);
 }
-.hero-title {
-  font-size: var(--fs-hero);
-  font-weight: 500;
-  line-height: 1.02;
-  letter-spacing: -0.02em;
-  color: var(--text-hi);
+/* the monument — Roman VOLOS wordmark, the hero's single gold moment */
+.hero-wordmark {
+  font-family: var(--font-display); /* Cinzel */
+  font-weight: 600;
+  font-size: clamp(64px, 12vw, 168px);
+  line-height: 1;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   transform: translateZ(45px); /* depth layer inside the gyroscope */
+  margin-right: -0.14em; /* optical: balance the trailing letter-spacing */
+}
+.hero-plinth {
+  display: block;
+  width: clamp(120px, 18vw, 260px);
+  height: 1px;
+  margin: var(--space-4) auto 0;
+  background: linear-gradient(90deg, transparent, var(--gold-soft), transparent);
+  transform: translateZ(34px);
 }
 .hero-lede {
-  margin-top: var(--space-6);
+  margin: var(--space-6) auto 0;
   max-width: 48ch;
+  color: var(--text-hi);
   transform: translateZ(20px);
 }
 
@@ -434,10 +456,10 @@ main,
   border-bottom: 1px solid var(--line);
 }
 .capability-no {
-  font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-family: var(--font-display); /* Cinzel — Roman numerals as inscription */
+  font-size: 1.2rem;
   color: var(--text-low);
-  letter-spacing: 0.02em;
+  letter-spacing: 0.06em;
 }
 .capability-title {
   font-family: var(--font-sans);
@@ -462,14 +484,15 @@ main,
 .feature-name {
   font-size: var(--fs-h1);
   font-weight: 500;
-  letter-spacing: -0.015em;
-  line-height: 1.04;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.08;
   color: var(--text-hi);
 }
 .feature-descriptor {
-  margin-top: var(--space-4);
+  margin-top: var(--space-5);
   font-size: var(--fs-lede);
-  font-weight: 300;
+  font-weight: 400;
   color: var(--text);
   max-width: 40ch;
 }
@@ -525,11 +548,13 @@ main,
   border-left: 1px solid var(--line);
 }
 .why-item-title {
-  font-family: var(--font-display);
+  font-family: var(--font-display); /* Cinzel */
   font-size: var(--fs-h3);
   font-weight: 500;
   color: var(--text-hi);
-  letter-spacing: -0.005em;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.2;
 }
 .why-item-copy {
   margin-top: var(--space-3);
@@ -550,8 +575,9 @@ main,
 }
 .contact-title {
   font-size: var(--fs-h2);
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   color: var(--text-hi);
 }
 .contact-lede {
@@ -562,19 +588,20 @@ main,
 .cta {
   position: relative;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
   margin-top: var(--space-7);
   padding: 19px 42px;
   border: 1px solid var(--line-gold);
   color: var(--gold);
+  font-family: var(--font-display); /* Cinzel — Roman caps */
   font-size: var(--fs-small);
   font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  overflow: hidden;
+  overflow: hidden; /* clips the gold fill — box-shadow glow paints outside */
   isolation: isolate;
-  transition: color 0.45s var(--ease), border-color 0.45s var(--ease);
+  box-shadow: 0 0 0 0 rgba(201, 168, 106, 0); /* halo at rest = invisible */
+  transition: color 0.45s var(--ease), border-color 0.45s var(--ease),
+    box-shadow 0.55s var(--ease);
   will-change: transform;
 }
 .cta::before {
@@ -587,18 +614,79 @@ main,
   transform-origin: bottom;
   transition: transform 0.45s var(--ease);
 }
+/* one direct-child span (the magnetic JS offsets it) — holds icon + label */
+.cta-inner {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+}
 .cta-label {
   position: relative;
 }
-.cta:hover {
+
+/* envelope — stroke=currentColor, so it flips gold → near-black with the fill */
+.cta-mail {
+  flex: none;
+  margin-left: -4px;
+  overflow: visible; /* let the flap pivot outside the 24×24 box */
+  perspective: 240px;
+}
+.cta-mail path,
+.cta-mail rect {
+  transition: stroke-width 0.45s var(--ease);
+}
+.mail-flap-open {
+  transform-box: view-box;
+  transform-origin: 12px 6.2px; /* hinge = top crease */
+  transform: rotateX(0deg);
+  opacity: 0;
+  transition: transform 0.5s var(--ease), opacity 0.35s var(--ease);
+}
+.mail-letter {
+  opacity: 0;
+  transform: translateY(2px);
+  transition: opacity 0.4s var(--ease) 0.06s, transform 0.4s var(--ease) 0.06s;
+}
+
+/* hover / focus — light up */
+.cta:hover,
+.cta:focus-visible {
   color: #0a0a0b;
   border-color: var(--gold);
+  /* three-layer gold halo: crisp rim · grounded near-glow · ambient bloom */
+  box-shadow: 0 0 0 1px rgba(226, 201, 136, 0.28),
+    0 6px 22px -4px rgba(201, 168, 106, 0.42),
+    0 0 40px 2px rgba(201, 168, 106, 0.28);
 }
-.cta:hover::before {
+.cta:hover::before,
+.cta:focus-visible::before {
   transform: scaleY(1);
+}
+.cta:hover .mail-flap-closed,
+.cta:focus-visible .mail-flap-closed {
+  opacity: 0.35;
+}
+.cta:hover .mail-flap-open,
+.cta:focus-visible .mail-flap-open {
+  opacity: 1;
+  transform: rotateX(-155deg);
+}
+.cta:hover .mail-letter,
+.cta:focus-visible .mail-letter {
+  opacity: 1;
+  transform: translateY(0);
+}
+.cta:hover .cta-mail path,
+.cta:hover .cta-mail rect,
+.cta:focus-visible .cta-mail path,
+.cta:focus-visible .cta-mail rect {
+  stroke-width: 1.6;
 }
 .cta:active {
   border-color: var(--gold-soft);
+  box-shadow: 0 0 0 1px rgba(226, 201, 136, 0.22),
+    0 3px 14px -4px rgba(201, 168, 106, 0.36);
 }
 
 .contact-details {
@@ -674,9 +762,6 @@ html.js .reveal.is-in {
 
 /* ---------- Responsive --------------------------------------------------- */
 @media (max-width: 720px) {
-  .hero-title br {
-    display: none;
-  }
   .capability {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -725,6 +810,16 @@ html.js .reveal.is-in {
   }
   .scroll-cue-line::after {
     animation: none !important;
+  }
+  /* CTA: keep the static highlighted state, drop the flap rotation */
+  .cta:hover .mail-flap-open,
+  .cta:focus-visible .mail-flap-open {
+    transform: none;
+    opacity: 1;
+  }
+  .cta:hover .mail-flap-closed,
+  .cta:focus-visible .mail-flap-closed {
+    opacity: 0;
   }
   *,
   *::before,
