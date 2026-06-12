@@ -689,27 +689,6 @@ main,
     0 3px 14px -4px rgba(201, 168, 106, 0.36);
 }
 
-.contact-details {
-  margin-top: var(--space-6);
-  display: inline-flex;
-  align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
-  justify-content: center;
-  color: var(--text-mid);
-  font-size: var(--fs-small);
-  letter-spacing: 0.02em;
-}
-.contact-link {
-  transition: color 0.3s var(--ease);
-}
-.contact-link:hover {
-  color: var(--gold);
-}
-.contact-sep {
-  color: var(--text-low);
-}
-
 /* ---------- Footer ------------------------------------------------------- */
 .site-foot {
   max-width: var(--maxw);
