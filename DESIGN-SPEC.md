@@ -1,3 +1,11 @@
+> **Revision (2026-06-12) — Roman restyle.** The display face is now **Cinzel**
+> (Roman inscriptional capitals), not Bodoni Moda. The hero leads with a
+> monumental gold **VOLOS** wordmark over a gold plinth (the tagline headline was
+> removed); the logomark/favicon is a filled Roman **"V"**; the CTA has an
+> envelope that opens + glows on hover; the contact phone and owner name were
+> removed and a footer copyright added. The palette, spacing, gold-rationing and
+> the cursor-animation system below are unchanged.
+
 # Volos Software Development — Build Spec ("Quiet Instrument")
 
 Premium dark + gold, austere minimal one-page studio site. Static Vite (vanilla
