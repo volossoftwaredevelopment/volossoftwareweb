@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0A0A0B" />
+
+    <title>Volos Software Development — Software for the world's finest yachts</title>
+    <meta
+      name="description"
+      content="Volos Software Development is a studio building bespoke yachting software, end to end. The studio behind Naucodex."
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Volos Software Development" />
+    <meta
+      property="og:description"
+      content="A studio building bespoke yachting software, end to end. The studio behind Naucodex."
+    />
+    <meta property="og:image" content="./assets/og.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+
+    <script type="module" src="./src/main.ts"></script>
+  </head>
+
+  <body>
+    <!-- Ambient cursor-reactive layers -->
+    <div class="glow" aria-hidden="true"></div>
+    <canvas class="constellation" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+
+    <a class="skip-link" href="#work">Skip to content</a>
+
+    <!-- ───────────────────────── Header / Nav ───────────────────────── -->
+    <header class="site-head">
+      <a class="brand" href="#top" aria-label="Volos Software Development — home" data-magnetic>
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="26" height="26">
+            <defs>
+              <linearGradient id="markGold" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#E2C988" />
+                <stop offset="0.5" stop-color="#C9A86A" />
+                <stop offset="1" stop-color="#A07E42" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M5.5 7 L16 25 L26.5 7"
+              fill="none"
+              stroke="url(#markGold)"
+              stroke-width="2.4"
+              stroke-linejoin="miter"
+            />
+          </svg>
+        </span>
+        <span class="brand-word"><span>Volos</span></span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#work" data-magnetic><span>Work</span></a>
+        <a href="#studio" data-magnetic><span>Studio</span></a>
+        <a href="#contact" data-magnetic><span>Contact</span></a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <!-- ───────────────────────────── Hero ───────────────────────────── -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-content">
+          <p class="eyebrow reveal" style="--d: 0">Volos Software Development</p>
+          <h1 class="hero-title reveal" id="hero-title" style="--d: 1">
+            Software for the<br />
+            world's finest yachts.
+          </h1>
+          <p class="lede hero-lede reveal" style="--d: 2">
+            We build custom systems for the companies that run them —
+            precise, private, built for the sea.
+          </p>
+        </div>
+
+        <a class="scroll-cue reveal" href="#work" aria-label="Scroll to content" style="--d: 3">
+          <span class="scroll-cue-label">Scroll</span>
+          <span class="scroll-cue-line" aria-hidden="true"></span>
+        </a>
+      </section>
+
+      <!-- ───────────────────────── What we build ───────────────────────── -->
+      <section class="section what" id="work" aria-labelledby="what-title">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--tick reveal">What we build</p>
+          <h2 class="section-title reveal" id="what-title">
+            Bespoke software, engineered for the water.
+          </h2>
+        </header>
+
+        <ol class="capability-list">
+          <li class="capability reveal">
+            <span class="capability-no" aria-hidden="true">01</span>
+            <h3 class="capability-title">Fleet &amp; charter platforms</h3>
+            <p class="capability-copy">
+              Booking, operations and guest experience, end to end.
+            </p>
+          </li>
+          <li class="capability reveal">
+            <span class="capability-no" aria-hidden="true">02</span>
+            <h3 class="capability-title">Onboard systems</h3>
+            <p class="capability-copy">
+              Offline-first software that works where the connection doesn't.
+            </p>
+          </li>
+          <li class="capability reveal">
+            <span class="capability-no" aria-hidden="true">03</span>
+            <h3 class="capability-title">Compliance &amp; operations</h3>
+            <p class="capability-copy">
+              Quiet tools for crew, certificates and the things that must not slip.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ───────────────────────── Selected work ───────────────────────── -->
+      <section class="section work-feature" id="projects" aria-labelledby="feature-title">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--tick reveal">Selected work</p>
+        </header>
+
+        <div class="feature reveal">
+          <h2 class="feature-name" id="feature-title">Naucodex</h2>
+          <p class="feature-descriptor">
+            The operating system for modern yacht operations.
+          </p>
+          <p class="feature-meta">Privacy-first digital logbook — live</p>
+          <a
+            class="feature-link"
+            href="https://nauticecosystem.com"
+            target="_blank"
+            rel="noopener"
+            data-magnetic
+          >
+            <span class="feature-link-label">Visit Naucodex</span>
+            <span class="feature-link-arrow" aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <p class="feature-aside reveal">More projects, on request.</p>
+      </section>
+
+      <!-- ───────────────────────────── Why ───────────────────────────── -->
+      <section class="section why" id="studio" aria-labelledby="why-title">
+        <header class="section-head">
+          <p class="eyebrow eyebrow--tick reveal">Why Volos</p>
+          <h2 class="section-title reveal visually-hidden" id="why-title">Why Volos</h2>
+        </header>
+
+        <div class="why-grid">
+          <div class="why-item reveal">
+            <h3 class="why-item-title">Built for the sea</h3>
+            <p class="why-item-copy">
+              Offline-first, maritime-grade, made for real conditions.
+            </p>
+          </div>
+          <div class="why-item reveal">
+            <h3 class="why-item-title">One studio, one standard</h3>
+            <p class="why-item-copy">
+              Designed and built by hand, not assembled.
+            </p>
+          </div>
+          <div class="why-item reveal">
+            <h3 class="why-item-title">Discretion by default</h3>
+            <p class="why-item-copy">
+              Your operation stays yours.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ───────────────────────────── Contact ───────────────────────────── -->
+      <section class="section contact" id="contact" aria-labelledby="contact-title">
+        <p class="eyebrow eyebrow--tick reveal">Contact</p>
+        <h2 class="contact-title reveal" id="contact-title">Let's build it.</h2>
+        <p class="lede contact-lede reveal">Tell us about your fleet.</p>
+
+        <a
+          class="cta reveal"
+          href="mailto:volossoftware@icloud.com?subject=Project%20enquiry%20%E2%80%94%20Volos%20Software&body=Tell%20us%20what%20you'd%20like%20built%3A%0A%0A"
+          data-magnetic
+        >
+          <span class="cta-label">Start a conversation</span>
+        </a>
+
+        <div class="contact-details reveal">
+          <a href="mailto:volossoftware@icloud.com" class="contact-link">volossoftware@icloud.com</a>
+          <span class="contact-sep" aria-hidden="true">·</span>
+          <a href="tel:+306993244210" class="contact-link">+30 699 324 4210</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-foot">
+      <span class="foot-brand">Volos Software Development</span>
+      <span class="foot-meta">Vladyslav Mavrodimaki</span>
+    </footer>
+  </body>
+</html>
