@@ -1,7 +1,8 @@
 # Volos Software Development — studio site
 
 Marketing site for **Volos Software Development**, a studio building bespoke
-yachting software. The studio behind [Naucodex](https://nauticecosystem.com).
+yachting software. The studio behind
+[Nautic Ecosystem](https://nauticecosystem.com).
 
 Austere dark + gold minimal design ("Quiet Instrument"), with a unified
 cursor-reactive animation system: a soft gold glow that follows the pointer,
