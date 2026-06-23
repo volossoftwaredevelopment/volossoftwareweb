@@ -808,3 +808,153 @@ html.js .reveal.is-in {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* ───────────────────────────── Pricing ───────────────────────────── */
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(24px, 5vw, 72px);
+  margin-top: var(--space-7);
+}
+@media (max-width: 680px) {
+  .price-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+}
+.price-item {
+  border-top: 1px solid var(--line);
+  padding-top: var(--space-4);
+}
+.price-figure {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 500;
+  color: var(--text-hi);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.price-per {
+  font-size: 0.38em;
+  color: var(--text-mid);
+  letter-spacing: 0;
+}
+.price-label {
+  font: 500 var(--fs-eyebrow) / 1 var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--gold);
+  margin-top: var(--space-3);
+}
+.price-copy {
+  font-size: var(--fs-body);
+  color: var(--text);
+  line-height: 1.65;
+  margin-top: var(--space-3);
+  max-width: 42ch;
+}
+
+/* ─────────────────────────── Footer links ─────────────────────────── */
+.foot-links {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+.foot-links a {
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: color 0.3s var(--ease);
+}
+.foot-links a:hover,
+.foot-links a:focus-visible {
+  color: var(--gold);
+}
+
+/* ───────────────────────── Cookie consent ────────────────────────── */
+.cookie {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: clamp(12px, 3vw, 24px);
+  z-index: 80;
+  width: min(640px, calc(100vw - 24px));
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  padding: 14px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.55);
+}
+.cookie[hidden] {
+  display: none;
+}
+.cookie-text {
+  margin: 0;
+  flex: 1 1 260px;
+  font-size: var(--fs-small);
+  color: var(--text);
+  line-height: 1.55;
+}
+.cookie-text a {
+  color: var(--gold);
+}
+.cookie-actions {
+  flex: 0 0 auto;
+}
+.cookie-btn {
+  font: 500 var(--fs-small) / 1 var(--font-sans);
+  letter-spacing: 0.04em;
+  color: #0a0a0b;
+  background: var(--gold-gradient);
+  border: none;
+  padding: 11px 22px;
+  cursor: pointer;
+  transition: filter 0.3s var(--ease);
+}
+.cookie-btn:hover,
+.cookie-btn:focus-visible {
+  filter: brightness(1.07);
+}
+
+/* ─────────────────────────── Legal pages ─────────────────────────── */
+.legal {
+  max-width: 760px;
+}
+.legal h3 {
+  font: 500 1.2rem / 1.3 var(--font-sans);
+  color: var(--text-hi);
+  margin-top: var(--space-7);
+}
+.legal p {
+  font-size: var(--fs-body);
+  color: var(--text);
+  line-height: 1.7;
+  margin-top: var(--space-3);
+  max-width: 64ch;
+}
+.legal a {
+  color: var(--gold);
+}
+.legal strong {
+  color: var(--text-hi);
+  font-weight: 500;
+}
+.legal-note {
+  margin-top: var(--space-7);
+  color: var(--text-low);
+  font-size: var(--fs-small);
+}
+.legal-back {
+  display: inline-block;
+  margin-top: var(--space-7);
+  color: var(--gold);
+  text-decoration: none;
+  font-size: var(--fs-small);
+  letter-spacing: 0.04em;
+}
+.legal-back:hover {
+  text-decoration: underline;
+}

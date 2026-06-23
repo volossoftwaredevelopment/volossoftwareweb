@@ -388,9 +388,33 @@ function onResize(): void {
   wake();
 }
 
+/* Cookie notice — shows once until "Got it" is clicked. Essential cookies only,
+ * so this is a simple acknowledgement (no per-category toggles needed). */
+function initCookie(): void {
+  const el = document.getElementById('cookie');
+  if (!el) return;
+  let consented = false;
+  try {
+    consented = localStorage.getItem('volos-cookie-consent') === '1';
+  } catch {
+    consented = true; // storage blocked → don't nag
+  }
+  if (consented) return;
+  el.hidden = false;
+  document.getElementById('cookie-ok')?.addEventListener('click', () => {
+    try {
+      localStorage.setItem('volos-cookie-consent', '1');
+    } catch {
+      /* ignore */
+    }
+    el.hidden = true;
+  });
+}
+
 function boot(): void {
   initReveals();
   initNav();
+  initCookie();
   window.addEventListener('resize', onResize, { passive: true });
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');

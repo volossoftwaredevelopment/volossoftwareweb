@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import { fileURLToPath } from 'node:url'
 
 // Project page on GitHub Pages (served under /volossoftwareweb/).
 // Relative base => assets resolve correctly at any sub-path, and the same
@@ -9,5 +10,12 @@ export default defineConfig({
     outDir: 'dist',
     target: 'es2020',
     cssMinify: true,
+    rollupOptions: {
+      input: {
+        // Multi-page: the landing + the standalone privacy notice.
+        main: fileURLToPath(new URL('./index.html', import.meta.url)),
+        privacy: fileURLToPath(new URL('./privacy.html', import.meta.url)),
+      },
+    },
   },
 })
