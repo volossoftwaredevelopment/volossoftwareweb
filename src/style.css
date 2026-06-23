@@ -481,11 +481,27 @@ main,
 .feature {
   max-width: 60ch;
 }
-/* Clear separation between consecutive project blocks (hairline + rhythm). */
-.feature + .feature {
-  margin-top: var(--space-8);
-  padding-top: var(--space-8);
-  border-top: 1px solid var(--line);
+/* Projects: side-by-side on wide screens, stacked on narrow. */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(40px, 6vw, 80px);
+}
+.feature-grid .feature {
+  max-width: none;
+}
+.feature-grid .feature-name {
+  font-size: var(--fs-h2);
+}
+@media (max-width: 860px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+  .feature-grid .feature + .feature {
+    margin-top: var(--space-7);
+    padding-top: var(--space-7);
+    border-top: 1px solid var(--line);
+  }
 }
 .feature-name {
   font-size: var(--fs-h1);
