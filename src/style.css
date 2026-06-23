@@ -481,6 +481,12 @@ main,
 .feature {
   max-width: 60ch;
 }
+/* Clear separation between consecutive project blocks (hairline + rhythm). */
+.feature + .feature {
+  margin-top: var(--space-8);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--line);
+}
 .feature-name {
   font-size: var(--fs-h1);
   font-weight: 500;
