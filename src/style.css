@@ -1043,6 +1043,11 @@ html.js .reveal.is-in {
     opacity: 1;
   }
 }
+/* `hidden` must win over the panel's own display:flex, or it never closes. */
+.winston-backdrop[hidden],
+.winston-panel[hidden] {
+  display: none !important;
+}
 .winston-panel {
   position: absolute;
   right: 0;

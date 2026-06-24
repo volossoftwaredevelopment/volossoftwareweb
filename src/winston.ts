@@ -102,8 +102,8 @@ export function initWinston(): void {
       started = true;
       render();
     }
-    // The header orb canvas measured 0 while the panel was hidden — re-measure.
-    window.dispatchEvent(new Event("resize"));
+    // The header orb's canvas re-measures itself via its ResizeObserver when the
+    // panel becomes visible — no global resize needed.
     setTimeout(() => input.focus(), 60);
   }
   function close(): void {
@@ -268,10 +268,13 @@ function mountOrb(
   }
 
   size();
-  window.addEventListener("resize", () => {
+  // Re-measure when the canvas itself resizes (window resize, or the panel
+  // becoming visible) — targeted, so we never poke the whole site's layout.
+  const ro = new ResizeObserver(() => {
     size();
     if (reduced) draw();
   });
+  ro.observe(canvas);
   if (reduced) {
     draw();
     return;
