@@ -1,4 +1,5 @@
 import './style.css'
+import { initWinston } from './winston'
 
 /* ===========================================================================
    Volos — cursor-reactive animation system.
@@ -415,6 +416,7 @@ function boot(): void {
   initReveals();
   initNav();
   initCookie();
+  initWinston();
   window.addEventListener('resize', onResize, { passive: true });
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
