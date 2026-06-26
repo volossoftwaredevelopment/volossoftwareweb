@@ -556,6 +556,106 @@ main,
   letter-spacing: 0.04em;
 }
 
+/* ---------- Demos by industry (niche selector) --------------------------- */
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(16px, 2.5vw, 28px);
+  margin-top: var(--space-7);
+}
+.demo-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(24px, 3vw, 34px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  transition: border-color 0.4s var(--ease), background 0.4s var(--ease),
+    transform 0.4s var(--ease);
+  will-change: transform;
+}
+/* hairline gold accent along the top edge, like the page's body::before */
+.demo-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-soft) 50%, transparent);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease);
+}
+a.demo-card:hover,
+a.demo-card:focus-visible {
+  border-color: var(--line-gold);
+  background: var(--surface-2);
+  transform: translateY(-3px);
+}
+a.demo-card:hover::before,
+a.demo-card:focus-visible::before {
+  opacity: 0.55;
+}
+.demo-card-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-display); /* Cinzel — Roman caps */
+  font-size: var(--fs-eyebrow);
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  line-height: 1;
+}
+.demo-card-name {
+  margin-top: var(--space-4);
+  font-family: var(--font-display); /* Cinzel */
+  font-size: var(--fs-h3);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.15;
+  color: var(--text-hi);
+}
+.demo-card-copy {
+  margin-top: var(--space-3);
+  color: var(--text-mid);
+  font-size: var(--fs-small);
+  line-height: 1.6;
+  max-width: 34ch;
+}
+.demo-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: var(--space-5);
+  color: var(--gold);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.demo-card-cta-arrow {
+  transition: transform 0.4s var(--ease);
+}
+a.demo-card:hover .demo-card-cta-arrow,
+a.demo-card:focus-visible .demo-card-cta-arrow {
+  transform: translateX(5px);
+}
+/* "coming soon" placeholders — subtle, non-interactive */
+.demo-card.is-soon {
+  background: transparent;
+  border-style: dashed;
+  border-color: var(--line);
+}
+.demo-card.is-soon .demo-card-eyebrow,
+.demo-card.is-soon .demo-card-name {
+  color: var(--text-low);
+}
+.demo-card.is-soon .demo-card-cta {
+  color: var(--text-low);
+  letter-spacing: 0.12em;
+}
+
 /* ---------- Why ---------------------------------------------------------- */
 .why-grid {
   display: grid;
