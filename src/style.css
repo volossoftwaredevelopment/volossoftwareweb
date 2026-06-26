@@ -404,8 +404,15 @@ main,
 .scroll-cue {
   position: absolute;
   bottom: var(--space-6);
-  left: 50%;
-  transform: translateX(-50%);
+  /* Centre WITHOUT transform: this element is also a .reveal, whose
+     `transform: translateY(20px)` → `none` has higher specificity and would
+     clobber a `translateX(-50%)`, knocking the cue off-centre (a visible
+     sideways drift, worst on mobile). Auto-margins centre it transform-free,
+     so the reveal animation only drives the vertical fade-in. */
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: max-content;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
