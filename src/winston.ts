@@ -141,7 +141,7 @@ export function initWinston(): void {
         role: "assistant",
         content:
           data.reply ||
-          "Sorry — I had trouble there. You can reach Vlad directly at volossoftware@icloud.com.",
+          "Sorry — I had trouble there. You can reach Vlad directly at info@volossoftware.dev.",
       });
       render();
       if (data.leadSubmitted) root.classList.add("winston-lead-done");
@@ -150,7 +150,7 @@ export function initWinston(): void {
       messages.push({
         role: "assistant",
         content:
-          "I couldn't reach the studio just now. Please email volossoftware@icloud.com and Vlad will get straight back to you.",
+          "I couldn't reach the studio just now. Please email info@volossoftware.dev and Vlad will get straight back to you.",
       });
       render();
     }
