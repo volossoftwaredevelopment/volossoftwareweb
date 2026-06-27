@@ -295,9 +295,19 @@ function initReveals(): void {
         }
       }
     },
-    { rootMargin: '0px 0px -60px 0px', threshold: 0 },
+    { rootMargin: '0px 0px -12% 0px', threshold: 0 },
   );
-  els.forEach((e) => io.observe(e));
+  // Anything already on screen at load reveals immediately (its stagger delay
+  // still plays) — this kills the hero "flash of empty" and any above-the-fold
+  // ghosting where content stayed invisible until a scroll nudged it in.
+  const vh = window.innerHeight;
+  els.forEach((e) => {
+    if ((e as HTMLElement).getBoundingClientRect().top < vh * 0.92) {
+      e.classList.add('is-in');
+    } else {
+      io.observe(e);
+    }
+  });
 }
 
 function initNav(): void {

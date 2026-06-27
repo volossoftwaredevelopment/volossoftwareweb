@@ -566,40 +566,95 @@ main,
 /* ---------- Demos by industry (niche selector) --------------------------- */
 .demo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: clamp(16px, 2.5vw, 28px);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(18px, 2.5vw, 28px);
   margin-top: var(--space-7);
 }
 .demo-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: clamp(24px, 3vw, 34px);
   background: var(--surface);
   border: 1px solid var(--line);
-  transition: border-color 0.4s var(--ease), background 0.4s var(--ease),
-    transform 0.4s var(--ease);
+  overflow: hidden;
+  transition: border-color 0.45s var(--ease), transform 0.45s var(--ease),
+    box-shadow 0.45s var(--ease);
   will-change: transform;
-}
-/* hairline gold accent along the top edge, like the page's body::before */
-.demo-card::before {
-  content: '';
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--gold-soft) 50%, transparent);
-  opacity: 0;
-  transition: opacity 0.4s var(--ease);
 }
 a.demo-card:hover,
 a.demo-card:focus-visible {
   border-color: var(--line-gold);
-  background: var(--surface-2);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: 0 28px 64px -26px rgba(0, 0, 0, 0.75);
 }
-a.demo-card:hover::before,
-a.demo-card:focus-visible::before {
-  opacity: 0.55;
+/* The product shot — a real screenshot-grade photo of the live demo. */
+.demo-card-shot {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+.demo-card-shot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.015);
+  filter: saturate(0.94) brightness(0.96);
+  transition: transform 0.7s var(--ease), filter 0.7s var(--ease);
+}
+a.demo-card:hover .demo-card-shot img,
+a.demo-card:focus-visible .demo-card-shot img {
+  transform: scale(1.07);
+  filter: saturate(1.04) brightness(1);
+}
+/* Dark foot gradient so the brand wordmark reads on any photo. */
+.demo-card-shot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 11, 0.86) 0%,
+    rgba(10, 10, 11, 0.12) 44%,
+    transparent 72%
+  );
+  pointer-events: none;
+}
+/* gold hairline along the photo's bottom edge — the page's jewel language */
+.demo-card-shot::before {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 1px;
+  z-index: 2;
+  background: linear-gradient(90deg, transparent, var(--gold-soft) 50%, transparent);
+  opacity: 0;
+  transition: opacity 0.45s var(--ease);
+}
+a.demo-card:hover .demo-card-shot::before,
+a.demo-card:focus-visible .demo-card-shot::before {
+  opacity: 0.7;
+}
+.demo-card-brand {
+  position: absolute;
+  left: clamp(16px, 2vw, 22px);
+  bottom: clamp(13px, 1.5vw, 17px);
+  z-index: 2;
+  font-family: var(--font-display); /* Cinzel */
+  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--text-hi);
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.55);
+}
+.demo-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: clamp(20px, 2.4vw, 28px);
 }
 .demo-card-eyebrow {
   display: inline-flex;
@@ -612,22 +667,11 @@ a.demo-card:focus-visible::before {
   color: var(--gold);
   line-height: 1;
 }
-.demo-card-name {
-  margin-top: var(--space-4);
-  font-family: var(--font-display); /* Cinzel */
-  font-size: var(--fs-h3);
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  line-height: 1.15;
-  color: var(--text-hi);
-}
 .demo-card-copy {
   margin-top: var(--space-3);
   color: var(--text-mid);
   font-size: var(--fs-small);
   line-height: 1.6;
-  max-width: 34ch;
 }
 .demo-card-cta {
   display: inline-flex;
@@ -647,20 +691,6 @@ a.demo-card:focus-visible::before {
 a.demo-card:hover .demo-card-cta-arrow,
 a.demo-card:focus-visible .demo-card-cta-arrow {
   transform: translateX(5px);
-}
-/* "coming soon" placeholders — subtle, non-interactive */
-.demo-card.is-soon {
-  background: transparent;
-  border-style: dashed;
-  border-color: var(--line);
-}
-.demo-card.is-soon .demo-card-eyebrow,
-.demo-card.is-soon .demo-card-name {
-  color: var(--text-low);
-}
-.demo-card.is-soon .demo-card-cta {
-  color: var(--text-low);
-  letter-spacing: 0.12em;
 }
 
 /* ---------- Why ---------------------------------------------------------- */
