@@ -836,6 +836,21 @@ a.demo-card:focus-visible .demo-card-cta-arrow {
 .foot-brand {
   color: var(--text-mid);
 }
+.foot-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+.foot-x {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-low);
+  transition: color 0.25s var(--ease);
+}
+.foot-x:hover,
+.foot-x:focus-visible {
+  color: var(--gold);
+}
 
 /* ---------- Reveal animation (gated on JS for no-JS / SEO safety) -------- */
 html.js .reveal {
