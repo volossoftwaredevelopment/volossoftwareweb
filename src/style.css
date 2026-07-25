@@ -449,7 +449,7 @@ main,
   }
 }
 
-/* ---------- The two directions ------------------------------------------- */
+/* ---------- What we build ------------------------------------------------ */
 .capability-list {
   list-style: none;
   border-top: 1px solid var(--line);
@@ -480,42 +480,108 @@ main,
   font-size: var(--fs-body);
   max-width: 46ch;
 }
-/* Third column when a direction carries a link down to its own section. */
-.capability-body {
-  min-width: 0;
-}
-.capability-link {
-  margin-top: var(--space-4);
-}
 
-/* ---------- Featured project (Social projects · Selected work) ----------- */
-.work-feature {
-  position: relative;
+/* ---------- Explore — two gateway doors ---------------------------------- */
+.explore-lede {
+  margin-top: calc(-1 * var(--space-5));
+  margin-bottom: var(--space-2);
+  color: var(--text-mid);
 }
-.feature {
-  max-width: 60ch;
-}
-/* Projects: side-by-side on wide screens, stacked on narrow. */
-.feature-grid {
+.door-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: clamp(40px, 6vw, 80px);
+  gap: clamp(18px, 2.5vw, 28px);
+  margin-top: var(--space-7);
 }
-.feature-grid .feature {
-  max-width: none;
+.door {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: clamp(240px, 32vw, 320px);
+  padding: clamp(28px, 4vw, 48px);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  transition: border-color 0.45s var(--ease), transform 0.45s var(--ease),
+    box-shadow 0.45s var(--ease);
+  will-change: transform;
 }
-.feature-grid .feature-name {
+a.door:hover,
+a.door:focus-visible {
+  border-color: var(--line-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 28px 64px -26px rgba(0, 0, 0, 0.75);
+}
+.door-no {
+  font-family: var(--font-display); /* Cinzel — Roman numeral as inscription */
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  color: var(--text-low);
+}
+.door-name {
+  margin-top: var(--space-4);
+  font-family: var(--font-display); /* Cinzel */
   font-size: var(--fs-h2);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.1;
+  color: var(--text-hi);
 }
-@media (max-width: 860px) {
-  .feature-grid {
-    grid-template-columns: 1fr;
-  }
-  .feature-grid .feature + .feature {
-    margin-top: var(--space-7);
-    padding-top: var(--space-7);
-    border-top: 1px solid var(--line);
-  }
+.door-copy {
+  margin-top: var(--space-4);
+  color: var(--text-mid);
+  font-size: var(--fs-body);
+  max-width: 40ch;
+}
+.door-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: var(--space-6);
+  color: var(--gold);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.door-cta-arrow {
+  transition: transform 0.4s var(--ease);
+}
+a.door:hover .door-cta-arrow,
+a.door:focus-visible .door-cta-arrow {
+  transform: translateX(5px);
+}
+
+/* ---------- Direction pages — intro hero --------------------------------- */
+.page-intro {
+  padding-top: clamp(140px, 22vh, 240px);
+}
+.page-title {
+  margin-top: var(--space-4);
+  font-family: var(--font-display); /* Cinzel */
+  font-size: var(--fs-h1);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-hi);
+  max-width: 20ch;
+}
+/* the "Volos ·" crumb inside a direction page's eyebrow */
+.eyebrow-back {
+  color: var(--text-mid);
+  transition: color 0.3s var(--ease);
+}
+.eyebrow-back:hover,
+.eyebrow-back:focus-visible {
+  color: var(--gold);
+}
+
+/* ---------- Featured project (Social projects) -------------------------- */
+.feature {
+  max-width: 60ch;
 }
 .feature-name {
   font-size: var(--fs-h1);
@@ -925,6 +991,12 @@ html.js .reveal.is-in {
 .why-item:nth-child(3) {
   --d: 2;
 }
+.door:nth-child(1) {
+  --d: 0;
+}
+.door:nth-child(2) {
+  --d: 1;
+}
 
 /* ---------- Responsive --------------------------------------------------- */
 @media (max-width: 720px) {
@@ -934,6 +1006,9 @@ html.js .reveal.is-in {
   }
   .capability-no {
     font-size: 1rem;
+  }
+  .door-grid {
+    grid-template-columns: 1fr;
   }
   .why-grid {
     grid-template-columns: 1fr;
@@ -994,51 +1069,6 @@ html.js .reveal.is-in {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
   }
-}
-
-/* ───────────────────────────── Pricing ───────────────────────────── */
-.price-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(24px, 5vw, 72px);
-  margin-top: var(--space-7);
-}
-@media (max-width: 680px) {
-  .price-grid {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
-  }
-}
-.price-item {
-  border-top: 1px solid var(--line);
-  padding-top: var(--space-4);
-}
-.price-figure {
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 5vw, 3.75rem);
-  font-weight: 500;
-  color: var(--text-hi);
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-.price-per {
-  font-size: 0.38em;
-  color: var(--text-mid);
-  letter-spacing: 0;
-}
-.price-label {
-  font: 500 var(--fs-eyebrow) / 1 var(--font-sans);
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  color: var(--gold);
-  margin-top: var(--space-3);
-}
-.price-copy {
-  font-size: var(--fs-body);
-  color: var(--text);
-  line-height: 1.65;
-  margin-top: var(--space-3);
-  max-width: 42ch;
 }
 
 /* ─────────────────────────── Footer links ─────────────────────────── */

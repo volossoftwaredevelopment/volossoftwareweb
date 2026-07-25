@@ -20,7 +20,7 @@ interface Msg {
 }
 
 const GREETING =
-  "Hi, I'm Winston — Volos's AI assistant. Volos works in two directions: AI and automation for business, and social projects like The Book of Humanity. What are you looking to build?\n\nYou can write to me in any language — I'll reply in yours.";
+  "Hi, I'm Winston — Volos's AI assistant. Volos is a software studio that builds anything — any project, any idea, with the newest technology. Two things we're building right now are AI & automation for business and social projects like The Book of Humanity, but they're not the limits of what we do. What are you looking to build?\n\nYou can write to me in any language — I'll reply in yours.";
 
 export function initWinston(): void {
   if (typeof document === "undefined" || document.querySelector(".winston")) return;

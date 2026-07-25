@@ -12,8 +12,10 @@ export default defineConfig({
     cssMinify: true,
     rollupOptions: {
       input: {
-        // Multi-page: the landing + the standalone privacy notice.
+        // Multi-page: the landing, the two direction pages, and the privacy notice.
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
+        automation: fileURLToPath(new URL('./automation.html', import.meta.url)),
+        social: fileURLToPath(new URL('./social.html', import.meta.url)),
         privacy: fileURLToPath(new URL('./privacy.html', import.meta.url)),
       },
     },
