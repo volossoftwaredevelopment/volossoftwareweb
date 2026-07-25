@@ -449,7 +449,7 @@ main,
   }
 }
 
-/* ---------- What we build ------------------------------------------------ */
+/* ---------- The two directions ------------------------------------------- */
 .capability-list {
   list-style: none;
   border-top: 1px solid var(--line);
@@ -480,8 +480,15 @@ main,
   font-size: var(--fs-body);
   max-width: 46ch;
 }
+/* Third column when a direction carries a link down to its own section. */
+.capability-body {
+  min-width: 0;
+}
+.capability-link {
+  margin-top: var(--space-4);
+}
 
-/* ---------- Selected work ------------------------------------------------ */
+/* ---------- Featured project (Social projects · Selected work) ----------- */
 .work-feature {
   position: relative;
 }
@@ -524,6 +531,12 @@ main,
   font-weight: 400;
   color: var(--text);
   max-width: 40ch;
+}
+.feature-copy {
+  margin-top: var(--space-4);
+  color: var(--text-mid);
+  font-size: var(--fs-body);
+  max-width: 46ch;
 }
 .feature-meta {
   margin-top: var(--space-3);
