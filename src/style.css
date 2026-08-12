@@ -489,7 +489,7 @@ main,
 }
 .door-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
   gap: clamp(18px, 2.5vw, 28px);
   margin-top: var(--space-7);
 }
@@ -997,6 +997,9 @@ html.js .reveal.is-in {
 .door:nth-child(2) {
   --d: 1;
 }
+.door:nth-child(3) {
+  --d: 2;
+}
 
 /* ---------- Responsive --------------------------------------------------- */
 @media (max-width: 720px) {
@@ -1006,9 +1009,6 @@ html.js .reveal.is-in {
   }
   .capability-no {
     font-size: 1rem;
-  }
-  .door-grid {
-    grid-template-columns: 1fr;
   }
   .why-grid {
     grid-template-columns: 1fr;
@@ -1028,10 +1028,22 @@ html.js .reveal.is-in {
 
 @media (max-width: 480px) {
   .site-nav {
-    gap: 18px;
+    gap: 13px;
+  }
+  .site-nav a {
+    letter-spacing: 0.08em;
   }
   .brand-word {
     display: none;
+  }
+}
+@media (max-width: 360px) {
+  .site-nav {
+    gap: 10px;
+  }
+  .site-nav a {
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
   }
 }
 

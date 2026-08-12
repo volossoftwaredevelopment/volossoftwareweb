@@ -13,6 +13,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://volossoftware.dev/websites.html</loc>
+    <lastmod>2026-08-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://volossoftware.dev/social.html</loc>
     <lastmod>2026-07-25</lastmod>
     <changefreq>monthly</changefreq>
